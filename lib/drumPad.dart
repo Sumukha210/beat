@@ -10,15 +10,18 @@ class DrumPad extends StatelessWidget {
   }
 
   Widget playContainer({Color bgColor, int soundNumber}) {
-    return ElevatedButton(
-        onPressed: () {
-          this.playSound(soundNumber);
-        },
-        style: ElevatedButton.styleFrom(
-          primary: bgColor,
-          padding: EdgeInsets.all(50),
-        ),
-        child: null);
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+          onPressed: () {
+            this.playSound(soundNumber);
+          },
+          style: ElevatedButton.styleFrom(
+            primary: bgColor,
+            padding: EdgeInsets.all(50),
+          ),
+          child: null),
+    );
   }
 
   @override
@@ -27,38 +30,22 @@ class DrumPad extends StatelessWidget {
         backgroundColor: Colors.grey[850],
         appBar: Components().navBar('Drumpad'),
         body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 80),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  playContainer(bgColor: Colors.redAccent[100], soundNumber: 1),
-                  playContainer(
-                      bgColor: Colors.deepOrangeAccent, soundNumber: 2),
-                  playContainer(bgColor: Colors.yellow, soundNumber: 3),
-                ],
-              ),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  playContainer(bgColor: Colors.teal, soundNumber: 4),
-                  playContainer(bgColor: Colors.blue, soundNumber: 5),
-                  playContainer(bgColor: Colors.greenAccent, soundNumber: 6),
-                ],
-              ),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  playContainer(bgColor: Colors.amber, soundNumber: 7),
-                  playContainer(bgColor: Colors.deepPurple, soundNumber: 10),
-                  playContainer(
-                      bgColor: Colors.lightBlueAccent, soundNumber: 11),
-                ],
-              ),
-            ],
+          child: Container(
+            margin: EdgeInsets.all(15),
+            child: Wrap(
+              spacing: 10,
+              children: <Widget>[
+                playContainer(bgColor: Colors.redAccent[100], soundNumber: 1),
+                playContainer(bgColor: Colors.deepOrangeAccent, soundNumber: 2),
+                playContainer(bgColor: Colors.yellow, soundNumber: 3),
+                playContainer(bgColor: Colors.teal, soundNumber: 4),
+                playContainer(bgColor: Colors.blue, soundNumber: 5),
+                playContainer(bgColor: Colors.greenAccent, soundNumber: 6),
+                playContainer(bgColor: Colors.amber, soundNumber: 7),
+                playContainer(bgColor: Colors.deepPurple, soundNumber: 10),
+                playContainer(bgColor: Colors.lightBlueAccent, soundNumber: 11),
+              ],
+            ),
           ),
         ));
   }
