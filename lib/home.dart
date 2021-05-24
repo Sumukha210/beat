@@ -1,6 +1,4 @@
 import 'package:drumpad/components.dart';
-import 'package:drumpad/drumPad.dart';
-import 'package:drumpad/xylophone.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {

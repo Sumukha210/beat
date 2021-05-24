@@ -1,6 +1,11 @@
-# drumpad
+# Beat
 
 A new Flutter project.
+
+## commands to build:-
+
+- flutter pub get
+- flutter pub run flutter_launcher_icons:main
 
 ## Getting Started
 
