@@ -1,18 +1,11 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
-class DrumpadBtn extends StatefulWidget {
+class DrumpadBtn extends StatelessWidget {
   final Color bgColor;
   final int soundNumber;
 
   DrumpadBtn({this.bgColor, this.soundNumber});
-
-  @override
-  _DrumpadBtnState createState() => _DrumpadBtnState();
-}
-
-class _DrumpadBtnState extends State<DrumpadBtn> {
-  bool clicked = false;
 
   playSound(int key) async {
     final audioPlayer = AudioCache();
@@ -21,29 +14,22 @@ class _DrumpadBtnState extends State<DrumpadBtn> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.only(right: 10, bottom: 10),
+        child: MaterialButton(
+          highlightElevation: 20,
           onPressed: () {
-            this.playSound(widget.soundNumber);
-            setState(() {
-              clicked = true;
-              Future.delayed(const Duration(milliseconds: 300), () {
-                setState(() {
-                  clicked = false;
-                });
-              });
-            });
+            this.playSound(this.soundNumber);
           },
-          style: ElevatedButton.styleFrom(
-            primary: widget.bgColor,
-            padding: EdgeInsets.all(50),
-            side: BorderSide(
-                color: this.clicked ? Colors.yellowAccent : Colors.transparent,
-                style: BorderStyle.solid,
-                width: 4),
+          height: 190,
+          color: this.bgColor,
+          splashColor: Colors.blue[100],
+          child: Container(
+            color: Colors.red,
           ),
-          child: null),
+        ),
+      ),
     );
   }
 }
