@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Components {
+  SizedBox heightSpacing(double space) {
+    return SizedBox(
+      height: space,
+    );
+  }
+
   AppBar navBar(String title) {
     return AppBar(
       toolbarHeight: 60,
